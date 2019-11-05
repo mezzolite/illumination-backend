@@ -16,7 +16,7 @@ all_noun_definitions = JSON.parse(noun_response.body)["results"]
     
 
 all_noun_definitions.each do |definition|
-    if definition["synonyms"]
+    if definition["synonyms"] && definition["partOfSpeech"] == "noun"
         definition["synonyms"].each do |synonym|
             Noun.create(
                 text: synonym
